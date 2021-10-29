@@ -21,7 +21,7 @@ def powerset(array, idx=None):
         idx = len(array) - 1
     if idx < 0:
         return [[]]
-    el = array[idx]# el = 4
+    el = array[idx]  # el = 4
     subsets = powerset(array, idx - 1)  # array slicing!
     # subsets = powerset([1, 2, 3, 4], 2) => powerset([1, 2, 3])
     for i in range(len(subsets)):
