@@ -5,13 +5,10 @@ Permutations
 
 # First Solution
 # O(n!*n^2) Time | O(n!*n) Space
-
-
 def getPermutations(array):
     permutations = []
     permutationsHelper(array, [], permutations)
     return permutations
-
 
 def permutationsHelper(array, currentPermutation, permutations):
     if not len(array) and len(currentPermutation):
@@ -23,13 +20,15 @@ def permutationsHelper(array, currentPermutation, permutations):
             permutationsHelper(newArray, newPermutation, permutations)
 
 
+
+
+
 # Second Solution
 # O(n!*n) Time|Space
 def getPermutations(array):
     permutations = []
     permutationsHelper(array, [], permutations)
     return permutations
-
 
 def permutationsHelper(idx, array, permutations):
     if idx == len(array)-1:
@@ -39,3 +38,6 @@ def permutationsHelper(idx, array, permutations):
             swap(array, idx, j)
             permutationsHelper(idx+1, array, permutations)
             swap(array, j, idx)
+
+def swap(array, i, j):
+    array[i], array[j] = array[j], array[i]
