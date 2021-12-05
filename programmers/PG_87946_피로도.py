@@ -8,11 +8,19 @@ https://programmers.co.kr/learn/courses/30/lessons/87946
 '''
 
 
+import itertools
+
+
 def solution(k, dungeons):
-    width, height = 0, 9
-    for x, y in sizes:
-        if width < max(x, y):
-            width = max(x, y)
-        if height < min(x, y):
-            height = min(x, y)
-    return width * height
+    answer = 0
+    dungeonsList = list(itertools.permutations(dungeons))
+    for perm in dungeonsList:
+        currK, curr = k, 0
+        for x, y in perm:
+            if currK >= x:
+                currK -= y
+                curr += 1
+        if curr > answer:
+            answer = curr
+
+    return answer
